@@ -3,7 +3,7 @@ package gopdf
 import (
 	"testing"
 
-	"github.com/tiechui1994/gopdf/core"
+	"github.com/sanrentai/gopdf/core"
 )
 
 func ComplexHLineReport() {

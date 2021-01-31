@@ -1,15 +1,15 @@
 package gopdf
 
 import (
-	"testing"
-	"io/ioutil"
-	"encoding/json"
-	"log"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
+	"testing"
 
-	"github.com/tiechui1994/gopdf/core"
-	"github.com/tiechui1994/gopdf/lex"
+	"github.com/sanrentai/gopdf/core"
+	"github.com/sanrentai/gopdf/lex"
 )
 
 func init() {
