@@ -101,6 +101,9 @@ func init() {
 		contentWidth:  431.72,
 		contentHeight: 648,
 	}
+
+	c, _ := NewConfig(680.32, 255.12, 90, 30)
+	defaultConfigs["241"] = c
 }
 
 // Register create self pdf config
