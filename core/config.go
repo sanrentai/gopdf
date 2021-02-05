@@ -64,6 +64,7 @@ A0 ~ A5 page width and height config:
 	'A3': [841.89, 1190.55],
 	'A4': [595.28, 841.89],
 	'A5': [419.53, 595.28],
+	'241': [680.32,255.12]
 ***************************************/
 func init() {
 	defaultConfigs = make(map[string]*Config)

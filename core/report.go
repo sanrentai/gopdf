@@ -347,6 +347,19 @@ func (report *Report) SetPage(size string, orientation string) {
 			report.addAtomicCell("P  |" + unit + "|" + strconv.FormatFloat(report.pageWidth, 'f', 4, 64) +
 				"|" + strconv.FormatFloat(report.pageHeight, 'f', 4, 64))
 		}
+	default:
+		switch orientation {
+		case "P":
+			report.pageWidth = config.width
+			report.pageHeight = config.height
+			report.addAtomicCell("P|" + unit + "|" + strconv.FormatFloat(report.pageWidth, 'f', 4, 64) +
+				"|" + strconv.FormatFloat(report.pageHeight, 'f', 4, 64))
+		case "L":
+			report.pageWidth = config.height
+			report.pageHeight = config.width
+			report.addAtomicCell("P  |" + unit + "|" + strconv.FormatFloat(report.pageWidth, 'f', 4, 64) +
+				"|" + strconv.FormatFloat(report.pageHeight, 'f', 4, 64))
+		}
 	}
 
 	report.contentWidth = config.contentWidth
