@@ -183,6 +183,16 @@ func (convert *Converter) Page(line string, elements []string) {
 		} else {
 			panic("Page Orientation accept P or L")
 		}
+	case "241":
+		config := defaultConfigs["241"]
+		convert.setunit(elements[1])
+		if elements[3] == "P" {
+			convert.start(config.width, config.height)
+		} else if elements[3] == "L" {
+			convert.start(config.height, config.width)
+		} else {
+			panic("Page Orientation accept P or L")
+		}
 	default:
 		panic("This size not supported yet:" + elements[2])
 	}
@@ -506,7 +516,6 @@ func (convert *Converter) InternalLinkLink(line string, elements []string) {
 	convert.pdf.SetX(parseFloatPanic(elements[1], line) + parseFloatPanic(elements[3], line))
 	convert.pdf.SetY(parseFloatPanic(elements[2], line))
 }
-
 
 func (convert *Converter) Margin(line string, eles []string) {
 	checkLength(line, eles, 3)
