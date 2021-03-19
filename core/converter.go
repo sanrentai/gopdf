@@ -183,8 +183,28 @@ func (convert *Converter) Page(line string, elements []string) {
 		} else {
 			panic("Page Orientation accept P or L")
 		}
-	case "241":
-		config := defaultConfigs["241"]
+	case "241/3":
+		config := defaultConfigs["241/3"]
+		convert.setunit(elements[1])
+		if elements[3] == "P" {
+			convert.start(config.width, config.height)
+		} else if elements[3] == "L" {
+			convert.start(config.height, config.width)
+		} else {
+			panic("Page Orientation accept P or L")
+		}
+	case "241/2":
+		config := defaultConfigs["241/2"]
+		convert.setunit(elements[1])
+		if elements[3] == "P" {
+			convert.start(config.width, config.height)
+		} else if elements[3] == "L" {
+			convert.start(config.height, config.width)
+		} else {
+			panic("Page Orientation accept P or L")
+		}
+	case "241/1":
+		config := defaultConfigs["241/1"]
 		convert.setunit(elements[1])
 		if elements[3] == "P" {
 			convert.start(config.width, config.height)
