@@ -102,8 +102,15 @@ func init() {
 		contentHeight: 648,
 	}
 
-	c, _ := NewConfig(680.32, 255.12, 90, 30)
-	defaultConfigs["241"] = c
+	c3, _ := NewConfig(680.32, 255.12, 90, 30)
+	c2, _ := NewConfig(680.32, 382.68, 90, 30)
+	c1, _ := NewConfig(680.32, 756.36, 90, 30)
+	// 241 三等分
+	defaultConfigs["241/3"] = c3
+	// 241 二等分
+	defaultConfigs["241/2"] = c2
+	defaultConfigs["241/1"] = c1
+
 }
 
 // Register create self pdf config
