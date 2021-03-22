@@ -381,10 +381,18 @@ func (div *Div) drawLine(sx, sy float64) {
 
 		// 两条竖线 + 一条横线
 		if div.frameType != DIV_NONE {
-			div.pdf.LineV(sx+div.margin.Left, y, y+div.height)
-			div.pdf.LineV(sx+div.margin.Left+div.border.Left+div.width+div.border.Right, y, y+div.height)
-
-			div.pdf.LineH(sx+div.margin.Left, y, sx+div.margin.Left+div.border.Left+div.width+div.border.Right)
+			// 左边框
+			if div.border.Left > 0 {
+				div.pdf.LineV(sx+div.margin.Left, y, y+div.height)
+			}
+			// 右边框
+			if div.border.Right > 0 {
+				div.pdf.LineV(sx+div.margin.Left+div.border.Left+div.width+div.border.Right, y, y+div.height)
+			}
+			// 上边框
+			if div.border.Top > 0 {
+				div.pdf.LineH(sx+div.margin.Left, y, sx+div.margin.Left+div.border.Left+div.width+div.border.Right)
+			}
 			div.pdf.LineH(sx+div.margin.Left, y+div.height, sx+div.margin.Left+div.border.Left+div.width+div.border.Right)
 		}
 	}
